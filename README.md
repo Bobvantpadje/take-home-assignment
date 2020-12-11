@@ -100,3 +100,26 @@ Based on these stories, please do as follows:
 * You have a team of 3 developers. How would you tackle working together on the stories?
 
 * Can you describe 1 thing that can go wrong with your code once in production?
+
+
+### TODO:
+# Search cars
+* Search by year.
+* Search by brand.
+* Empty search --> show all cars
+
+# Add cars
+Add car with the following details: 
+* model
+* make
+* version
+* releaseYear
+* price
+* fuel consumption
+* annual maintenance cost
+
+# Rank cars by total costs
+
+### Design choices
+* Next.js: This application might end up displaying a lot of cars. Using SSR makes it possible to server initial car data and images server side. This will decrease the initial load time for the user. 
+Also, because this project has a short deadline this framework will help me to develop quicker.
