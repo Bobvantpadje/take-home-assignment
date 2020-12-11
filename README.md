@@ -129,3 +129,4 @@ Add car with the following details:
 Also, because this project has a short deadline this framework will help me to develop quicker.
 * Css: when creating large project I prefer to create some sort of design system. To save time and to keep the application simple I choose to just use regular css.
 * Components folder: All reusable components will go here.
+* Formik: Input handling and validation is hard to get right. Formik makes it easy to setup form validation. 
