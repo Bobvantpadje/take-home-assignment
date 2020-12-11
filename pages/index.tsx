@@ -3,6 +3,7 @@ import React from "react";
 import { useFilterCarsByYearAndMake } from "../hooks/useFilterCarsByYearAndMake";
 import styles from "../styles/Home.module.css";
 import { api } from "./api";
+import { AddCar } from "./components/AddCar";
 import { CarList } from "./components/CarList";
 
 export default function Home() {
@@ -16,6 +17,11 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <AddCar
+        addCar={(newCar: Car) => {
+          setCars((prevCars) => [...prevCars, newCar]);
+        }}
+      />
       {filterString}
       <input
         onChange={(e) => {
@@ -27,4 +33,3 @@ export default function Home() {
     </div>
   );
 }
-
