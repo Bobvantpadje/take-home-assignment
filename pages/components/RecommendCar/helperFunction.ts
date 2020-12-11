@@ -1,7 +1,8 @@
 export const getCarsWithTotalPrice = (
   cars: Car[],
   distancePerMontInKM: number,
-  years: number
+  years: number,
+  fuelPrice: number
 ) => {
   return cars.map((car) => {
     const totalFuelConsumption = getTotalFullConsumption(
@@ -9,11 +10,12 @@ export const getCarsWithTotalPrice = (
       distancePerMontInKM,
       years
     );
+    const totalFuelPrice = totalFuelConsumption * fuelPrice;
     const totalMaintenanceCost = getTotalMaintenanceCost(
       car.maintenanceCostPerYear,
       years
     );
-    const totalPrice = totalFuelConsumption + totalMaintenanceCost + car.price;
+    const totalPrice = totalFuelPrice + totalMaintenanceCost + car.price;
     return {
       ...car,
       totalAccumulatedPrice: totalPrice,

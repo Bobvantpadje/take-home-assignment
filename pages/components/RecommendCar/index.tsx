@@ -6,12 +6,14 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
   const [distancePerMontInKM, setDistancePerMontInKM] = React.useState("");
   const [years, setYears] = React.useState("");
   const [rankedCars, setRankedCars] = React.useState<Car[]>([]);
+  const [fuelPrice, setFuelPrice] = React.useState('');
 
   const calculateCarRanking = () => {
     const carsWithTotalPrice = getCarsWithTotalPrice(
       cars,
-      parseInt(distancePerMontInKM),
-      parseInt(years)
+      parseFloat(distancePerMontInKM),
+      parseFloat(years),
+      parseFloat(fuelPrice)
     );
     const carsRankedByTotalPrice = rankCarsByTotalPrice(carsWithTotalPrice);
     setRankedCars(carsRankedByTotalPrice);
@@ -37,6 +39,13 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
           setYears(e.target.value);
         }}
         value={years}
+      />
+      <Input
+        label="Fuel price"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setFuelPrice(e.target.value);
+        }}
+        value={fuelPrice}
       />
       <button onClick={calculateCarRanking}>rank cars</button>
       <ul>

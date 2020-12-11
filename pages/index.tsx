@@ -5,7 +5,7 @@ import { AddCar } from "./components/AddCar";
 import { CarList } from "./components/CarList";
 import { Container } from "./components/Container";
 import { Input } from "./components/Input";
-import { RecommendCar } from "./components/RecommendCar";
+import { RecommendCar }  from "./components/RecommendCar";
 
 export default function Home() {
   const [cars, setCars] = React.useState<Car[]>([]);
