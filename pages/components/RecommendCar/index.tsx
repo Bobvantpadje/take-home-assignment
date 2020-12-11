@@ -38,7 +38,7 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       <ul>
         {rankedCars.map((car, index) => (
           <li key={car.id}>
-            <b>{index + 1}.</b> {car.make} {car.model} - totalPrice: {car.totalAccumulatedPrice}
+            <b>{index + 1}.</b> {car.make} {car.model} - totalPrice: €{car.totalAccumulatedPrice}
           </li>
         ))}
       </ul>

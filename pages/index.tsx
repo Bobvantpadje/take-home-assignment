@@ -9,8 +9,6 @@ import { RecommendCar } from "./components/RecommendCar";
 
 export default function Home() {
   const [cars, setCars] = React.useState<Car[]>([]);
-  const [filterString, setFilterString] = React.useState("");
-  const filteredCars = useFilterCarsByYearAndMake(cars, filterString);
 
   // Fake an api call. When doing actual api call we should add some loading/error handling
   React.useEffect(() => {
@@ -34,16 +32,7 @@ export default function Home() {
         />
       </Container>
       <Container>
-        <h2>Car list</h2>
-        <Input
-          onChange={(e) => {
-            setFilterString(e.target.value);
-          }}
-          value={filterString}
-          label="Search for car"
-          placeholder="Year or make"
-        />
-        <CarList cars={filteredCars} />
+        <CarList cars={cars} />
       </Container>
       <Container>
         <RecommendCar cars={cars} />
