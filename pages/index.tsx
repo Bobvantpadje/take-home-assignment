@@ -18,21 +18,22 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <AddCar
-        addCar={(newCar: Car) => {
-          setCars((prevCars) => [...prevCars, newCar]);
-        }}
-      />
-      <br />
       <input
         onChange={(e) => {
           setFilterString(e.target.value);
         }}
         value={filterString}
       />
+      <br />
       <CarList cars={filteredCars} />
+  
       <br />
       <RecommendCar cars={cars}/>
+        <AddCar
+          addCar={(newCar: Car) => {
+            setCars((prevCars) => [...prevCars, newCar]);
+          }}
+        />
     </div>
   );
 }
