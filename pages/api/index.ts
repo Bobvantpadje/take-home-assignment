@@ -26,7 +26,7 @@ export const api = {
         make: "Honda",
         model: "Fit",
         version: "petrol",
-        releaseYear: 2017,
+        releaseYear: 2018,
         price: 10000,
         fuelConsumption: 1.3,
         maintenanceCostPerYear: 250,

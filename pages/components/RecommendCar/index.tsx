@@ -19,6 +19,7 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
 
   return (
     <div>
+      <h2>Rank cars</h2>
       <Input
         label="distance(km) per month"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

@@ -31,6 +31,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
 
   return (
     <form onSubmit={formik.handleSubmit}>
+      <h2>Add new car</h2>
       <Input
         id="model"
         name="model"

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Input.module.css";
 
 type Props = {
   id?: string;
@@ -7,13 +8,14 @@ type Props = {
   onChange: any;
   value: string;
   label?: string;
+  placeholder?: string;
 };
 
 export const Input: React.FC<Props> = ({ label, ...args }) => {
   return (
-    <div>
+    <div className={styles.inputContainer}>
       {label && <label htmlFor={args.name}> {label} </label>}
-      <input {...args} />
+      <input className={styles.input} {...args} />
     </div>
   );
 };
