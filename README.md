@@ -103,6 +103,8 @@ Based on these stories, please do as follows:
 
 
 ### TODO:
+# Car list
+* Display all cars
 # Search cars
 * Search by year.
 * Search by brand.
@@ -123,3 +125,5 @@ Add car with the following details:
 ### Design choices
 * Next.js: This application might end up displaying a lot of cars. Using SSR makes it possible to server initial car data and images server side. This will decrease the initial load time for the user. 
 Also, because this project has a short deadline this framework will help me to develop quicker.
+* Css: when creating large project I prefer to create some sort of design system. To save time and to keep the application simple I choose to just use regular css.
+* Components folder: All reusable components will go here.
