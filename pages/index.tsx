@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import { api } from "./api";
 import { AddCar } from "./components/AddCar";
 import { CarList } from "./components/CarList";
+import { RecommendCar } from "./components/RecommendCar";
 
 export default function Home() {
   const [cars, setCars] = React.useState<Car[]>([]);
@@ -22,7 +23,7 @@ export default function Home() {
           setCars((prevCars) => [...prevCars, newCar]);
         }}
       />
-      {filterString}
+      <br />
       <input
         onChange={(e) => {
           setFilterString(e.target.value);
@@ -30,6 +31,8 @@ export default function Home() {
         value={filterString}
       />
       <CarList cars={filteredCars} />
+      <br />
+      <RecommendCar cars={cars}/>
     </div>
   );
 }

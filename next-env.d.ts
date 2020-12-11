@@ -10,4 +10,5 @@ type Car = {
   price: number; // Euros
   fuelConsumption: number; // Euro per liter
   maintenanceCostPerYear: number;
+  totalAccumulatedPrice?: number;
 };

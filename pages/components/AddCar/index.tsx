@@ -1,4 +1,6 @@
 import { useFormik } from "formik";
+import React from "react";
+import { Input } from "../Input";
 
 export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
   addCar,
@@ -91,23 +93,5 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
         add Car
       </button>
     </form>
-  );
-};
-
-type Props = {
-  id: string;
-  name: string;
-  type: string;
-  onChange: any;
-  value: string;
-  label?: string;
-};
-
-const Input: React.FC<Props> = ({ label, ...args }) => {
-  return (
-    <div>
-      {label && <label htmlFor={args.name}> {label} </label>}
-      <input {...args} />
-    </div>
   );
 };

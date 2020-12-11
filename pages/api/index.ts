@@ -9,7 +9,7 @@ export const api = {
         releaseYear: 2018,
         price: 10000,
         fuelConsumption: 0.66,
-        maintenanceCostPerYear: 300,
+        maintenanceCostPerYear: 100,
       },
       {
         id: "2",
@@ -18,7 +18,7 @@ export const api = {
         version: "petrol",
         releaseYear: 2018,
         price: 10000,
-        fuelConsumption: 0.66,
+        fuelConsumption: 1,
         maintenanceCostPerYear: 300,
       },
       {
@@ -28,8 +28,8 @@ export const api = {
         version: "petrol",
         releaseYear: 2017,
         price: 10000,
-        fuelConsumption: 0.66,
-        maintenanceCostPerYear: 300,
+        fuelConsumption: 1.3,
+        maintenanceCostPerYear: 250,
       },
       {
         id: "4",
