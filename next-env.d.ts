@@ -6,7 +6,7 @@ type Car = {
   model: string;
   make: string;
   version: string;
-  releaseYear: string;
+  releaseYear: number;
   price: number; // Euros
   fuelConsumption: number; // Euro per liter
   maintenanceCostPerYear: number;

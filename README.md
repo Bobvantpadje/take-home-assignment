@@ -122,6 +122,8 @@ Add car with the following details:
 
 # Rank cars by total costs
 
+# Add documentation on how to run the project
+
 ### Design choices
 * Next.js: This application might end up displaying a lot of cars. Using SSR makes it possible to server initial car data and images server side. This will decrease the initial load time for the user. 
 Also, because this project has a short deadline this framework will help me to develop quicker.
