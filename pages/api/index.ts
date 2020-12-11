@@ -12,7 +12,7 @@ export const api = {
         maintenanceCostPerYear: 300,
       },
       {
-        id: "1",
+        id: "2",
         make: "Citroen",
         model: "C2",
         version: "petrol",
@@ -22,7 +22,7 @@ export const api = {
         maintenanceCostPerYear: 300,
       },
       {
-        id: "1",
+        id: "3",
         make: "Honda",
         model: "Fit",
         version: "petrol",
@@ -32,7 +32,7 @@ export const api = {
         maintenanceCostPerYear: 300,
       },
       {
-        id: "1",
+        id: "4",
         make: "Honda",
         model: "NotThatFit",
         version: "petrol",
