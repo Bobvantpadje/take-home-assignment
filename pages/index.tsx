@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Welkome to the car portal</h1>
+      <h1>Welcome to the car portal</h1>
       <p>In this portal you can see all available cars. It's also possible to filter the list based on year or make of the car, add new cars and rank the cars!</p>
       <br />
       <AddCar

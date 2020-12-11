@@ -1,0 +1,11 @@
+.inputWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 800px;
+}
+
+.inputWrapper > div {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 8px;
+}

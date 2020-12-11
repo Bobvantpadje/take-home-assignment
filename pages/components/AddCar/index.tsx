@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React from "react";
+import styles from './AddCar.module.css';
 import { Input } from "../Input";
 
 export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
@@ -15,7 +16,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
       fuelConsumption: "",
       maintenanceCostPerYear: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       addCar({
         id: "generateFakeId",
         model: values.model,
@@ -26,73 +27,72 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
         fuelConsumption: parseInt(values.fuelConsumption),
         maintenanceCostPerYear: parseInt(values.maintenanceCostPerYear),
       });
+      resetForm();
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <h2>Add new car</h2>
-      <Input
-        id="model"
-        name="model"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.model}
-        label="model"
-      />
-      <Input
-        id="make"
-        name="make"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.make}
-        label="make"
-      />
-      <Input
-        id="version"
-        name="version"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.version}
-        label="version"
-      />
-      <Input
-        id="releaseYear"
-        name="releaseYear"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.releaseYear}
-        label="releaseYear"
-      />
-      <Input
-        id="price"
-        name="price"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.price}
-        label="price"
-      />
-      <Input
-        id="fuelConsumption"
-        name="fuelConsumption"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.fuelConsumption}
-        label="fuelConsumption"
-      />
-      <Input
-        id="maintenanceCostPerYear"
-        name="maintenanceCostPerYear"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.maintenanceCostPerYear}
-        label="maintenanceCostPerYear"
-      />
-      <button
-        type="submit"
-      >
-        add Car
-      </button>
+      <div className={styles.inputWrapper}>
+        <Input
+          id="model"
+          name="model"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.model}
+          label="Model:"
+        />
+        <Input
+          id="make"
+          name="make"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.make}
+          label="Make:"
+        />
+        <Input
+          id="version"
+          name="version"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.version}
+          label="Version:"
+        />
+        <Input
+          id="releaseYear"
+          name="releaseYear"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.releaseYear}
+          label="Year:"
+        />
+        <Input
+          id="price"
+          name="price"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.price}
+          label="Price (€):"
+        />
+        <Input
+          id="fuelConsumption"
+          name="fuelConsumption"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.fuelConsumption}
+          label="Fuel consumption (KM/L):"
+        />
+        <Input
+          id="maintenanceCostPerYear"
+          name="maintenanceCostPerYear"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.maintenanceCostPerYear}
+          label="Maintenance cost per year (€):"
+        />
+      </div>
+      <button type="submit">add Car</button>
     </form>
   );
 };
