@@ -1,7 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
-import styles from './AddCar.module.css';
+import styles from "./AddCar.module.css";
 import { Input } from "../Input";
+import * as Yup from "yup";
 
 export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
   addCar,
@@ -16,7 +17,18 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
       fuelConsumption: "",
       maintenanceCostPerYear: "",
     },
-    onSubmit: (values, {resetForm}) => {
+    validationSchema: Yup.object().shape({
+      model: Yup.string().required("invalid text"),
+      make: Yup.string().required("invalid text"),
+      version: Yup.string().required("invalid text"),
+      releaseYear: Yup.number().required("invalid number"),
+      price: Yup.number().required("invalid number"),
+      fuelConsumption: Yup.number().required("invalid number"),
+      maintenanceCostPerYear: Yup.number().required(
+        "invalid number"
+      ),
+    }),
+    onSubmit: (values, { resetForm }) => {
       addCar({
         id: "generateFakeId",
         model: values.model,
@@ -42,6 +54,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.model}
           label="Model:"
+          error={formik.touched.model ? formik.errors.model : ""}
         />
         <Input
           id="make"
@@ -50,6 +63,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.make}
           label="Make:"
+          error={formik.touched.make ? formik.errors.make : ""}
         />
         <Input
           id="version"
@@ -58,6 +72,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.version}
           label="Version:"
+          error={formik.touched.version ? formik.errors.version : ""}
         />
         <Input
           id="releaseYear"
@@ -66,6 +81,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.releaseYear}
           label="Year:"
+          error={formik.touched.releaseYear ? formik.errors.releaseYear : ""}
         />
         <Input
           id="price"
@@ -74,6 +90,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.price}
           label="Price (€):"
+          error={formik.touched.price ? formik.errors.price : ""}
         />
         <Input
           id="fuelConsumption"
@@ -82,6 +99,9 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.fuelConsumption}
           label="Fuel consumption (KM/L):"
+          error={
+            formik.touched.fuelConsumption ? formik.errors.fuelConsumption : ""
+          }
         />
         <Input
           id="maintenanceCostPerYear"
@@ -90,6 +110,11 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
           onChange={formik.handleChange}
           value={formik.values.maintenanceCostPerYear}
           label="Maintenance cost per year (€):"
+          error={
+            formik.touched.maintenanceCostPerYear
+              ? formik.errors.maintenanceCostPerYear
+              : ""
+          }
         />
       </div>
       <button type="submit">add Car</button>

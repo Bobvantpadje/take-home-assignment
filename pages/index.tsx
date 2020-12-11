@@ -3,6 +3,7 @@ import { useFilterCarsByYearAndMake } from "../hooks/useFilterCarsByYearAndMake"
 import { api } from "./api";
 import { AddCar } from "./components/AddCar";
 import { CarList } from "./components/CarList";
+import { Container } from "./components/Container";
 import { Input } from "./components/Input";
 import { RecommendCar } from "./components/RecommendCar";
 
@@ -19,25 +20,34 @@ export default function Home() {
   return (
     <div>
       <h1>Welcome to the car portal</h1>
-      <p>In this portal you can see all available cars. It's also possible to filter the list based on year or make of the car, add new cars and rank the cars!</p>
+      <p>
+        In this portal you can see all available cars. It's also possible to
+        filter the list based on year or make of the car, add new cars and rank
+        the cars!
+      </p>
       <br />
-      <AddCar
+      <Container>
+        <AddCar
           addCar={(newCar: Car) => {
             setCars((prevCars) => [...prevCars, newCar]);
           }}
         />
-      <h2>Car list</h2>
-      <Input
-        onChange={(e) => {
-          setFilterString(e.target.value);
-        }}
-        value={filterString}
-        label="Search for car"
-        placeholder="Year or make"
-      />
-      <CarList cars={filteredCars} />
-
-      <RecommendCar cars={cars}/>
+      </Container>
+      <Container>
+        <h2>Car list</h2>
+        <Input
+          onChange={(e) => {
+            setFilterString(e.target.value);
+          }}
+          value={filterString}
+          label="Search for car"
+          placeholder="Year or make"
+        />
+        <CarList cars={filteredCars} />
+      </Container>
+      <Container>
+        <RecommendCar cars={cars} />
+      </Container>
     </div>
   );
 }

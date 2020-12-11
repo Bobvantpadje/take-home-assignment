@@ -9,13 +9,21 @@ type Props = {
   value: string;
   label?: string;
   placeholder?: string;
+  error?: string;
 };
 
-export const Input: React.FC<Props> = ({ label, ...args }) => {
+export const Input: React.FC<Props> = ({ label, error, ...args }) => {
   return (
     <div className={styles.inputContainer}>
       {label && <label htmlFor={args.name}> {label} </label>}
-      <input className={styles.input} {...args} />
+      <div>
+        <input
+          className={styles.input}
+          style={{ border: !!error && "1px solid red" }}
+          {...args}
+        />
+        {error && <div className={styles.errorLabel}>{error}</div>}
+      </div>
     </div>
   );
 };

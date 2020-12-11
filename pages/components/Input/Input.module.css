@@ -7,3 +7,8 @@
     padding: 4px 8px;
     border: 1px solid #d9d9d9;
 }
+
+.errorLabel {
+    color: red;
+    margin-top: 8px;
+}
