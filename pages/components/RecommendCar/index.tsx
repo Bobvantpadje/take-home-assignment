@@ -20,6 +20,10 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
   return (
     <div>
       <h2>Rank cars</h2>
+      <p>
+        Enter the amount of km you would like to drive per month and the amount
+        of years and we will rank the cars based on the total price!
+      </p>
       <Input
         label="distance(km) per month"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +42,8 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       <ul>
         {rankedCars.map((car, index) => (
           <li key={car.id}>
-            <b>{index + 1}.</b> {car.make} {car.model} - totalPrice: €{car.totalAccumulatedPrice}
+            <b>{index + 1}.</b> {car.make} {car.model} - totalPrice: €
+            {car.totalAccumulatedPrice}
           </li>
         ))}
       </ul>

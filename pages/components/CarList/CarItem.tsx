@@ -9,14 +9,12 @@ export const CarItem: React.FC<{ car: Car }> = ({ car }) => {
         </div>
         {car.releaseYear}
       </div>
-      <Row>Price: €{car.price}</Row>
-      <Row>Year: {car.releaseYear}</Row>
-      <Row>Usage (€/L): €{car.fuelConsumption}</Row>
-      <Row>Maintenance (€/Year): €{car.maintenanceCostPerYear}</Row>
+      <div className={styles.itemRow}>Price: €{car.price}</div>
+      <div className={styles.itemRow}>Year: {car.releaseYear}</div>
+      <div className={styles.itemRow}>Usage (€/L): €{car.fuelConsumption}</div>
+      <div className={styles.itemRow}>
+        Maintenance (€/Year): €{car.maintenanceCostPerYear}
+      </div>
     </li>
   );
 };
-
-const Row: React.FC = ({ children }) => (
-  <div className={styles.itemRow}>{children}</div>
-);
