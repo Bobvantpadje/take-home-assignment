@@ -18,15 +18,15 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
       maintenanceCostPerYear: "",
     },
     validationSchema: Yup.object().shape({
-      model: Yup.string().required("invalid text"),
-      make: Yup.string().required("invalid text"),
-      version: Yup.string().required("invalid text"),
-      releaseYear: Yup.number().required("invalid number"),
-      price: Yup.number().required("invalid number"),
-      fuelConsumption: Yup.number().required("invalid number"),
+      model: Yup.string().required("Invalid text").typeError('Invalid text'),
+      make: Yup.string().required("Invalid text").typeError('Invalid text'),
+      version: Yup.string().required("Invalid text").typeError('Invalid text'),
+      releaseYear: Yup.number().required("Invalid number").typeError('Invalid number'),
+      price: Yup.number().required("Invalid number").typeError('Invalid number'),
+      fuelConsumption: Yup.number().required("Invalid number").typeError('Invalid number'),
       maintenanceCostPerYear: Yup.number().required(
-        "invalid number"
-      ),
+        "Invalid number"
+      ).typeError('Invalid number'),
     }),
     onSubmit: (values, { resetForm }) => {
       addCar({
