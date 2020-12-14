@@ -5,6 +5,7 @@
 - Next.js: This application might end up displaying a lot of cars. Using SSR makes it possible to serve initial car data and images server side. This will decrease the initial load time for the user. Also, because this project has a short deadline this framework will help me to develop quicker.
 - Css: when creating large project I prefer to create some sort of design system but to save time and to keep the application simple I chose to just use regular css for now.
 - Formik & Yup: Input handling and validation is hard to get right. Formik makes it easy to setup form validation.
+- API folder: This is were I would store all my logic regarding api calls. I like to separate my data/api logic from all my other component logic. For now there is no back-end, but this is where I would store all data calls. 
 - Usually I would write unit tests to test all the code I’ve written, but due to lack of time I did no implement this.
 - RecommendCarLib: I stored all function regarding recommending cars in a lib file. Ideally I would do this in a Factory, but for now this should hold up. 
 
