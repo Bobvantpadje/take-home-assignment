@@ -48,29 +48,17 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       </p>
       <form onSubmit={formik.handleSubmit}>
         <Input
-          id="distance"
-          name="distance"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.distance}
+          {...formik.getFieldProps("distance")}
           label="Distance (KM per month):"
           error={formik.touched.distance ? formik.errors.distance : ""}
         />
         <Input
-          id="years"
-          name="years"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.years}
+          {...formik.getFieldProps("years")}
           label="Years:"
           error={formik.touched.years ? formik.errors.years : ""}
         />
         <Input
-          id="fuelPrice"
-          name="fuelPrice"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.fuelPrice}
+          {...formik.getFieldProps("fuelPrice")}
           label="Fuel price"
           error={formik.touched.fuelPrice ? formik.errors.fuelPrice : ""}
         />

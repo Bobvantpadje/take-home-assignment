@@ -12,7 +12,7 @@ type Props = {
   error?: string;
 };
 
-export const Input: React.FC<Props> = ({ label, error, ...args }) => {
+export const Input: React.FC<Props> = ({ label, error, type = "text", ...args }) => {
   return (
     <div className={styles.inputContainer}>
       {label && <label htmlFor={args.name}> {label} </label>}
@@ -20,6 +20,7 @@ export const Input: React.FC<Props> = ({ label, error, ...args }) => {
         <input
           className={styles.input}
           style={{ border: !!error && "1px solid red" }}
+          type={type}
           {...args}
         />
         {error && <div className={styles.errorLabel}>{error}</div>}

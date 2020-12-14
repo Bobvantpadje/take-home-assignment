@@ -18,15 +18,21 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
       maintenanceCostPerYear: "",
     },
     validationSchema: Yup.object().shape({
-      model: Yup.string().required("Invalid text").typeError('Invalid text'),
-      make: Yup.string().required("Invalid text").typeError('Invalid text'),
-      version: Yup.string().required("Invalid text").typeError('Invalid text'),
-      releaseYear: Yup.number().required("Invalid number").typeError('Invalid number'),
-      price: Yup.number().required("Invalid number").typeError('Invalid number'),
-      fuelConsumption: Yup.number().required("Invalid number").typeError('Invalid number'),
-      maintenanceCostPerYear: Yup.number().required(
-        "Invalid number"
-      ).typeError('Invalid number'),
+      model: Yup.string().required("Invalid text").typeError("Invalid text"),
+      make: Yup.string().required("Invalid text").typeError("Invalid text"),
+      version: Yup.string().required("Invalid text").typeError("Invalid text"),
+      releaseYear: Yup.number()
+        .required("Invalid number")
+        .typeError("Invalid number"),
+      price: Yup.number()
+        .required("Invalid number")
+        .typeError("Invalid number"),
+      fuelConsumption: Yup.number()
+        .required("Invalid number")
+        .typeError("Invalid number"),
+      maintenanceCostPerYear: Yup.number()
+        .required("Invalid number")
+        .typeError("Invalid number"),
     }),
     onSubmit: (values, { resetForm }) => {
       addCar({
@@ -48,67 +54,39 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
       <h2>Add new car</h2>
       <div className={styles.inputWrapper}>
         <Input
-          id="model"
-          name="model"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.model}
+          {...formik.getFieldProps("model")}
           label="Model:"
           error={formik.touched.model ? formik.errors.model : ""}
         />
         <Input
-          id="make"
-          name="make"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.make}
+          {...formik.getFieldProps("make")}
           label="Make:"
           error={formik.touched.make ? formik.errors.make : ""}
         />
         <Input
-          id="version"
-          name="version"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.version}
+          {...formik.getFieldProps("version")}
           label="Version:"
           error={formik.touched.version ? formik.errors.version : ""}
         />
         <Input
-          id="releaseYear"
-          name="releaseYear"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.releaseYear}
+          {...formik.getFieldProps("releaseYear")}
           label="Year:"
           error={formik.touched.releaseYear ? formik.errors.releaseYear : ""}
         />
         <Input
-          id="price"
-          name="price"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.price}
+          {...formik.getFieldProps("price")}
           label="Price (€):"
           error={formik.touched.price ? formik.errors.price : ""}
         />
         <Input
-          id="fuelConsumption"
-          name="fuelConsumption"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.fuelConsumption}
+          {...formik.getFieldProps("fuelConsumption")}
           label="Fuel consumption (KM/L):"
           error={
             formik.touched.fuelConsumption ? formik.errors.fuelConsumption : ""
           }
         />
         <Input
-          id="maintenanceCostPerYear"
-          name="maintenanceCostPerYear"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.maintenanceCostPerYear}
+          {...formik.getFieldProps("maintenanceCostPerYear")}
           label="Maintenance cost per year (€):"
           error={
             formik.touched.maintenanceCostPerYear
