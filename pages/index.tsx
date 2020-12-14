@@ -3,9 +3,10 @@ import { api } from "./api";
 import { AddCar } from "../components/AddCar";
 import { CarList } from "../components/CarList";
 import { RecommendCar } from "../components/RecommendCar";
+import { CarFactory } from "../Factories/Car";
 
 export default function Home() {
-  const [cars, setCars] = React.useState<Car[]>([]);
+  const [cars, setCars] = React.useState<ICarFactory[]>([]);
 
   // Fake an api call. When doing actual api call we should add some loading/error handling
   React.useEffect(() => {
@@ -23,7 +24,7 @@ export default function Home() {
       <br />
       <AddCar
         addCar={(newCar: Car) => {
-          setCars((prevCars) => [...prevCars, newCar]);
+          setCars((prevCars) => [...prevCars, CarFactory(newCar)]);
         }}
       />
       <CarList cars={cars} />

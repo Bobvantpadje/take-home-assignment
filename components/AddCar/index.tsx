@@ -41,10 +41,10 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
         model: values.model,
         make: values.make,
         version: values.version,
-        releaseYear: parseInt(values.releaseYear),
-        price: parseInt(values.price),
-        fuelConsumption: parseInt(values.fuelConsumption),
-        maintenanceCostPerYear: parseInt(values.maintenanceCostPerYear),
+        releaseYear: parseFloat(values.releaseYear),
+        price: parseFloat(values.price),
+        fuelConsumption: parseFloat(values.fuelConsumption),
+        maintenanceCostPerYear: parseFloat(values.maintenanceCostPerYear),
       });
       resetForm();
     },

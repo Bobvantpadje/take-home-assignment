@@ -1,6 +1,8 @@
+import { CarFactory } from "../../Factories/Car";
+
 export const api = {
-  getCars: (): Car[] => {
-    return [
+  getCars: (): ICarFactory[] => {
+    const cars = [
       {
         id: "1",
         make: "Citroen",
@@ -42,5 +44,6 @@ export const api = {
         maintenanceCostPerYear: 300,
       },
     ];
+    return cars.map((car) => CarFactory(car));
   },
 };

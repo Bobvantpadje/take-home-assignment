@@ -4,8 +4,8 @@ import { Input } from "../Input";
 import { rankCarsByTotalCost } from "./RecommendCarLib";
 import * as Yup from "yup";
 
-export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
-  const [rankedCars, setRankedCars] = React.useState<Car[]>([]);
+export const RecommendCar: React.FC<{ cars: ICarFactory[] }> = ({ cars }) => {
+  const [rankedCars, setRankedCars] = React.useState<ICarFactory[]>([]);
   const formik = useFormik({
     initialValues: {
       distance: "",
@@ -18,8 +18,13 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       fuelPrice: Yup.number().required("Required").typeError("Invalid Number"),
     }),
     onSubmit: (values) => {
-      const rankedCars = rankCarsByTotalCost({cars, ...values});
-      setRankedCars(rankedCars)
+      const rankedCars = rankCarsByTotalCost({
+        cars,
+        distance: parseFloat(values.distance),
+        years: parseFloat(values.years),
+        fuelPrice: parseFloat(values.fuelPrice),
+      });
+      setRankedCars(rankedCars);
     },
   });
 
@@ -51,8 +56,7 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       <ul>
         {rankedCars.map((car, index) => (
           <li key={car.id}>
-            <b>{index + 1}.</b> {car.make} {car.model} - totalPrice: €
-            {car.totalAccumulatedPrice.toFixed(2)}
+            <b>{index + 1}.</b> {car.make} {car.model}
           </li>
         ))}
       </ul>
