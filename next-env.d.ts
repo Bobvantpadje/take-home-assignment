@@ -8,7 +8,7 @@ type Car = {
   version: string;
   releaseYear: number;
   price: number; // Euros
-  fuelConsumption: number; // Euro per liter
+  fuelConsumption: number; // KM per liter
   maintenanceCostPerYear: number;
   totalAccumulatedPrice?: number;
 };

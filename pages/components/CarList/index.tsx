@@ -17,7 +17,7 @@ export const CarList: React.FC<{ cars: Car[]; searchable?: boolean }> = ({
   }
 
   return (
-    <>
+    <div className="block-container">
       <h2>Car list</h2>
       {searchable && (
         <Input
@@ -34,6 +34,6 @@ export const CarList: React.FC<{ cars: Car[]; searchable?: boolean }> = ({
           <CarItem key={car.id} car={car} />
         ))}
       </ul>
-    </>
+    </div>
   );
 };

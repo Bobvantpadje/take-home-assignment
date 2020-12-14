@@ -20,7 +20,7 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
   };
 
   return (
-    <div>
+    <div className="block-container">
       <h2>Rank cars</h2>
       <p>
         Enter the amount of km you would like to drive per month and the amount

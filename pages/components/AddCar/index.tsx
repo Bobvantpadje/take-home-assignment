@@ -44,7 +44,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="block-container">
       <h2>Add new car</h2>
       <div className={styles.inputWrapper}>
         <Input

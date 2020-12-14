@@ -1,11 +1,8 @@
 import React from "react";
-import { useFilterCarsByYearAndMake } from "../hooks/useFilterCarsByYearAndMake";
 import { api } from "./api";
 import { AddCar } from "./components/AddCar";
 import { CarList } from "./components/CarList";
-import { Container } from "./components/Container";
-import { Input } from "./components/Input";
-import { RecommendCar }  from "./components/RecommendCar";
+import { RecommendCar } from "./components/RecommendCar";
 
 export default function Home() {
   const [cars, setCars] = React.useState<Car[]>([]);
@@ -24,19 +21,13 @@ export default function Home() {
         the cars!
       </p>
       <br />
-      <Container>
-        <AddCar
-          addCar={(newCar: Car) => {
-            setCars((prevCars) => [...prevCars, newCar]);
-          }}
-        />
-      </Container>
-      <Container>
-        <CarList cars={cars} />
-      </Container>
-      <Container>
-        <RecommendCar cars={cars} />
-      </Container>
+      <AddCar
+        addCar={(newCar: Car) => {
+          setCars((prevCars) => [...prevCars, newCar]);
+        }}
+      />
+      <CarList cars={cars} />
+      <RecommendCar cars={cars} />
     </div>
   );
 }

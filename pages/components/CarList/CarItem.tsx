@@ -11,7 +11,7 @@ export const CarItem: React.FC<{ car: Car }> = ({ car }) => {
       </div>
       <div className={styles.itemRow}>Price: €{car.price}</div>
       <div className={styles.itemRow}>Year: {car.releaseYear}</div>
-      <div className={styles.itemRow}>Usage (€/L): €{car.fuelConsumption}</div>
+      <div className={styles.itemRow}>Usage (KM/L): €{car.fuelConsumption}</div>
       <div className={styles.itemRow}>
         Maintenance (€/Year): €{car.maintenanceCostPerYear}
       </div>
