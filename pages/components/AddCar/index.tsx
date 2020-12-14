@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./AddCar.module.css";
 import { Input } from "../Input";
 import * as Yup from "yup";
+import { v4 as uuidv4 } from "uuid";
 
 export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
   addCar,
@@ -36,7 +37,7 @@ export const AddCar: React.FC<{ addCar: (car: Car) => void }> = ({
     }),
     onSubmit: (values, { resetForm }) => {
       addCar({
-        id: "generateFakeId",
+        id: uuidv4(), // You should normally do this on the back-end
         model: values.model,
         make: values.make,
         version: values.version,
