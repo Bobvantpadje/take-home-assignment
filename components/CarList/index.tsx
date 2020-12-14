@@ -2,7 +2,7 @@ import { CarItem } from "./List/CarItem";
 import styles from "./Carlist.module.css";
 import { Input } from "../Input";
 import React from "react";
-import { useFilterCarsByYearAndMake } from "../../../hooks/useFilterCarsByYearAndMake";
+import { useFilterCarsByYearAndMake } from "../../hooks/useFilterCarsByYearAndMake";
 import { List } from "./List/List";
 export const CarList: React.FC<{ cars: Car[]; searchable?: boolean }> = ({
   cars,

@@ -1,8 +1,8 @@
 import React from "react";
 import { api } from "./api";
-import { AddCar } from "./components/AddCar";
-import { CarList } from "./components/CarList";
-import { RecommendCar } from "./components/RecommendCar";
+import { AddCar } from "../components/AddCar";
+import { CarList } from "../components/CarList";
+import { RecommendCar } from "../components/RecommendCar";
 
 export default function Home() {
   const [cars, setCars] = React.useState<Car[]>([]);
