@@ -1,14 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
 import { Input } from "../Input";
-import { getCarsWithTotalPrice, rankCarsByTotalPrice } from "./helperFunction";
+import { rankCarsByTotalCost } from "./RecommendCarLib";
 import * as Yup from "yup";
-
-type Params = {
-  distance: string;
-  years: string;
-  fuelPrice: string;
-};
 
 export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
   const [rankedCars, setRankedCars] = React.useState<Car[]>([]);
@@ -24,20 +18,10 @@ export const RecommendCar: React.FC<{ cars: Car[] }> = ({ cars }) => {
       fuelPrice: Yup.number().required("Required").typeError("Invalid Number"),
     }),
     onSubmit: (values) => {
-      calculateCarRanking(values);
+      const rankedCars = rankCarsByTotalCost({cars, ...values});
+      setRankedCars(rankedCars)
     },
   });
-
-  const calculateCarRanking = ({ distance, years, fuelPrice }: Params) => {
-    const carsWithTotalPrice = getCarsWithTotalPrice(
-      cars,
-      parseFloat(distance),
-      parseFloat(years),
-      parseFloat(fuelPrice)
-    );
-    const carsRankedByTotalPrice = rankCarsByTotalPrice(carsWithTotalPrice);
-    setRankedCars(carsRankedByTotalPrice);
-  };
 
   return (
     <div className="block-container">
